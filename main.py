@@ -4,10 +4,6 @@ from tkinter import *
 
 
 
-
-
-
-
 #creating tkinter or software main window.
 window=tk.Tk()
 window.title("Scientific Calculator")
@@ -60,6 +56,9 @@ scvalue = StringVar()
 screen = Entry(frame, textvar=scvalue, font="lucida 20 bold",relief=SUNKEN,borderwidth=2)
 screen.pack(fill=X,ipadx=6,pady=8,padx=10) #padding of screen
 scvalue.set("")
+
+
+
 
 # creating button of calculator
 b9 = Button(frame, text="9", padx=6, pady=1, font="lucida 15 bold",bg="lightblue") # design of button
@@ -121,11 +120,43 @@ ac.place(relx=1.0, x=-100,y=230, anchor='ne')
 ac.bind("<Button-1>",click)
 
 
+button = Button(frame, text="*", padx=7, pady=1, font="lucida 15 bold",bg="lightblue")
+button.place(relx=1.0, x=-150,y=80, anchor='ne')
+button.bind("<Button-1>",click)
+
+
+button = Button(frame, text="/", padx=8, pady=1, font="lucida 15 bold",bg="lightblue")
+button.place(relx=1.0, x=-150,y=130, anchor='ne')
+button.bind("<Button-1>",click)
+
+
+button = Button(frame, text="+", padx=6, pady=1, font="lucida 15 bold",bg="lightblue")
+button.place(relx=1.0, x=-150,y=180, anchor='ne')
+button.bind("<Button-1>",click)
+
+
+button = Button(frame, text="=", padx=6, pady=1, font="lucida 15 bold",bg="lightblue")
+button.place(relx=1.0, x=-150,y=230, anchor='ne')
+button.bind("<Button-1>",click)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 window.mainloop()
-
 
 
