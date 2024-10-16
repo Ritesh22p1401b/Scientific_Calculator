@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import *
-from functions import click
+
 
 
 
@@ -17,17 +17,49 @@ window.geometry("490x570")
 # Create a frame
 frame = Frame(window, width=375, height=475, bg="white",borderwidth=2,
 highlightbackground="black", highlightcolor="black", highlightthickness=2)
-
 frame.pack_propagate(False)  # Prevent the frame from resizing to fit its contents
 frame.pack(expand=True)  # Center the frame in the window
 
 
+def click(event):
+    
+    global scvalue
+    text = event.widget.cget("text")
+    #screen.insert(0, text) 
+
+    if text == "=":
+        if scvalue.get().isdigit():
+            value = int(scvalue.get())
+        else:
+            try:
+                value = eval(screen.get())
+
+            except Exception as e:
+                print(e)
+                value = "Error"
+        
+        scvalue.set(value)
+        screen.update()
+
+    elif text == "AC":
+        scvalue.set("")
+        screen.update()
+
+    else:
+        scvalue.set(scvalue.get() + text)
+        screen.update()
+
+
+
+
+
+
 #Creating Screen and entering the value
 scvalue = StringVar()
-scvalue.set("")
+
 screen = Entry(frame, textvar=scvalue, font="lucida 20 bold",relief=SUNKEN,borderwidth=2)
 screen.pack(fill=X,ipadx=6,pady=8,padx=10) #padding of screen
-
+scvalue.set("")
 
 # creating button of calculator
 b9 = Button(frame, text="9", padx=6, pady=1, font="lucida 15 bold",bg="lightblue") # design of button
@@ -36,22 +68,22 @@ b9.bind("<Button-1>",click)
 
 b8 = Button(frame, text="8", padx=6, pady=1, font="lucida 15 bold",bg="lightblue")
 b8.place(relx=1.0, x=-50,y=80, anchor='ne')
-b8.bind("b8",click)
+b8.bind("<Button-1>",click)
 
 
 b7 = Button(frame, text="7", padx=6, pady=1, font="lucida 15 bold",bg="lightblue")
 b7.place(relx=1.0, x=-100,y=80, anchor='ne')
-b7.bind("b7",click)
+b7.bind("<Button-1>",click)
 
 
 b6 = Button(frame, text="6", padx=6, pady=1, font="lucida 15 bold",bg="lightblue")
 b6.place(relx=1.0, x=-5,y=130, anchor='ne')
-b6.bind("b6",click)
+b6.bind("<Button-1>",click)
 
 
 b5 = Button(frame, text="5", padx=6, pady=1, font="lucida 15 bold",bg="lightblue")
 b5.place(relx=1.0, x=-50,y=130, anchor='ne')
-b5.bind("b5",click)
+b5.bind("<Button-1>",click)
 
 
 b4 = Button(frame, text="4", padx=6, pady=1, font="lucida 15 bold",bg="lightblue")
@@ -86,7 +118,7 @@ b.bind("<Button-1>",click)
 
 ac = Button(frame, text="AC", padx=4, pady=6, font="lucida 11 bold",bg="lightblue")
 ac.place(relx=1.0, x=-100,y=230, anchor='ne')
-ac.bind("Button-1",click)
+ac.bind("<Button-1>",click)
 
 
 
@@ -94,3 +126,6 @@ ac.bind("Button-1",click)
 
 
 window.mainloop()
+
+
+
