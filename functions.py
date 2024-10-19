@@ -6,20 +6,49 @@ def multiply(a,b):
     return float(a)*float(b)
 
 def add(a,b):
-    return float(a)*float(b)
+    return float(a)+float(b)
 
 def sub(a,b):
-    return float(a)*float(b)
+    return float(a)-float(b)
 
 def divide(a,b):
-    return float(a)*float(b)
+    return float(a)/float(b)
 
 def root(a,b):
     return float(b)**(1/float(a))
 
+def power(a,b):
+    a,b=float(a),float(b)
+    return m.pow(a,b)
+
+
+def permutation(n,r):
+    n,r=int(n),int(r)
+    def fac(q):
+        c=1
+        while(q>=1):
+            c=c*q
+            q-=1
+        return c
+    s=n-r
+    result=fac(n) // fac(s)
+    return result
+
+def combination(n,r):
+    n,r=int(n),int(r)
+    def fac(q):
+        c=1
+        while(q>=1):
+            c=c*q
+            q-=1
+        return c
+    s=n-r
+    result=(fac(n)//(fac(r)*(fac(s))))
+    return result
+    
+
 
 def scientific_cal(a,b):
-
 # trignometry function
     if a == "tan":
         answer=m.tan(float(b))

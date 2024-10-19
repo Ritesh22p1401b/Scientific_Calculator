@@ -59,7 +59,19 @@ def equal():
             data=get_sign("√",expression)
             answer=root(data[0],data[1])
 
-        
+        elif expression.find("P")>0:
+            data=get_sign("P",expression)
+            answer=permutation(data[0],data[1])
+
+        elif expression.find("C")>0:
+            data=get_sign("C",expression)
+            answer=combination(data[0],data[1])
+
+        elif expression.find("^")>0:
+            data=get_sign("^",expression)
+            answer=power(data[0],data[1])
+
+
         screen.insert(0,answer)
 
     except:
@@ -214,20 +226,39 @@ button.place(relx=1.0,x=-180,y=230, anchor='ne')
 
 
 button = Button(frame, text="X^ʸ", padx=6, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
-            command=lambda:press(" ^ "))
+            command=lambda:press("^"))
 button.place(relx=1.0,x=-278,y=80, anchor='ne')
 
 
 button = Button(frame, text="y√X", padx=2, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
-            command=lambda:press(" √ "))
+            command=lambda:press("√"))
 button.place(relx=1.0,x=-278,y=130, anchor='ne')
 
 
-button = Button(frame, text="#", padx=10, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
-            command=lambda:press(""))
+button = Button(frame, text="nPr", padx=4, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
+            command=lambda:press("P"))
 button.place(relx=1.0,x=-278,y=180, anchor='ne')
 
 
+button = Button(frame, text="nCr", padx=4, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
+            command=lambda:press("C"))
+button.place(relx=1.0,x=-278,y=230, anchor='ne')
+
+
+
+button = Button(frame, text="tanˉ¹", padx=-2, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
+            command=lambda:press("tanˉ¹("))
+button.place(relx=1.0,x=-180,y=280, anchor='ne')
+
+
+button = Button(frame, text="sinˉ¹", padx=-2, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
+            command=lambda:press("sinˉ¹("))
+button.place(relx=1.0,x=-230,y=280, anchor='ne')
+
+
+button = Button(frame, text="cosˉ¹", padx=-2, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
+            command=lambda:press("cosˉ¹("))
+button.place(relx=1.0,x=-278,y=280, anchor='ne')
 
 
 
@@ -237,22 +268,21 @@ button.place(relx=1.0,x=-278,y=180, anchor='ne')
 
 
 
-
-button = Button(frame, text="=", padx=47, pady=1,  font=font,bg="gray1",foreground="DarkOrange1",command=equal)
-button.place(relx=1.0, x=-5,y=280, anchor='ne')
+button = Button(frame, text="=", padx=47, pady=1,  font=font,bg="DarkOrange1",foreground="white",command=equal)
+button.place(relx=1.0, x=-5,y=330, anchor='ne')
 # button.bind("<Button-1>",click)
 
 
 button = Button(frame, text="B", padx=47, pady=1,  font=font,bg="gray1",foreground="DarkOrange1",command=backspace)
-button.place(relx=1.0, x=-125,y=280, anchor='ne')
+button.place(relx=1.0, x=-125,y=330, anchor='ne')
 
 
 ac = Button(frame, text="AC", padx=1, pady=2,  font=font,bg="gray1",foreground="DarkOrange1",command=clear)
-ac.place(relx=1.0, x=-180,y=380, anchor='ne')
+ac.place(relx=1.0, x=-180,y=400, anchor='ne')
 
 
 button = Button(frame, text="Close", padx=10, pady=2,  font=font,bg="gray1",foreground="DarkOrange1",command=close)
-button.place(relx=1.0, x=-5,y=380, anchor='ne')
+button.place(relx=1.0, x=-5,y=400, anchor='ne')
 
 
 
