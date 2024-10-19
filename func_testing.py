@@ -16,3 +16,4 @@ num1=6
 num2=1
 print(permutation(num2,num1))
 
+

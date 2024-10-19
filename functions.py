@@ -2,6 +2,7 @@ import math as m
 
 
 
+
 def multiply(a,b):
     return float(a)*float(b)
 
@@ -20,7 +21,6 @@ def root(a,b):
 def power(a,b):
     a,b=float(a),float(b)
     return m.pow(a,b)
-
 
 def permutation(n,r):
     n,r=int(n),int(r)
@@ -60,7 +60,7 @@ def scientific_cal(a,b):
         answer=m.sin(float(b))
     
 #inverse trignometry 
-    elif a == "acos": 
+    elif a == "cosˉ¹": 
         answer=m.acos(float(b))
 
     elif a == "asin":
