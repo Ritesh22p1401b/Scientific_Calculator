@@ -53,31 +53,59 @@ def equal():
             data=get_sign("(",expression)
             answer=scientific_cal(data[0],data[1])
         
+
         elif expression.find("*")>0:
             data=get_sign("*",expression)
             answer=multiply(data[0],data[1])
+
+
+        elif expression.find("+")>0:
+            data=get_sign("+",expression)
+            answer=add(data[0],data[1])
+
+
+        elif expression.find("-")>0:
+            data=get_sign("-",expression)
+            answer=sub(data[0],data[1])
+
+
+        elif expression.find("/")>0:
+            data=get_sign("/",expression)
+            answer=divide(data[0],data[1])
+
 
         elif expression.find("√")>0:
             data=get_sign("√",expression)
             answer=root(data[0],data[1])
 
+
         elif expression.find("P")>0:
             data=get_sign("P",expression)
             answer=permutation(data[0],data[1])
+
 
         elif expression.find("C")>0:
             data=get_sign("C",expression)
             answer=combination(data[0],data[1])
 
+
         elif expression.find("^")>0:
             data=get_sign("^",expression)
             answer=power(data[0],data[1])
 
+
+        elif expression.find("%")>0:
+            data=get_sign("%",expression)
+            answer=remainder_fuc(data[0],data[1])
+            
+
         elif expression.find("π")==0:
             answer=m.pi
 
+
         elif expression.find("e")==0:
             answer=m.e
+
 
 
         screen.insert(0,answer)

@@ -47,6 +47,11 @@ def combination(n,r):
     return result
     
 
+def remainder_fuc(a,b):
+    a,b=int(a),int(b)
+    answer=a%b
+    return answer
+
 
 def scientific_cal(a,b):
 # trignometry function
@@ -63,10 +68,10 @@ def scientific_cal(a,b):
     elif a == "cosˉ¹": 
         answer=m.acos(float(b))
 
-    elif a == "asin":
+    elif a == "sinˉ¹":
         answer=m.asin(float(b))
 
-    elif a == "atan":
+    elif a == "tanˉ¹":
         answer=m.atan(float(b))
 
 #logrithmic function 
@@ -85,3 +90,9 @@ def scientific_cal(a,b):
 
 
     return answer
+
+
+
+
+
+
