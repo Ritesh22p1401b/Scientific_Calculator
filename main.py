@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import *
 from functions import *
+switch=None
 
 
 
@@ -17,6 +18,9 @@ frame = Frame(window, width=375, height=475, bg="gray11",borderwidth=2,
 highlightbackground="black", highlightcolor="gray11", highlightthickness=2)
 frame.pack_propagate(False)  # Prevent the frame from resizing to fit its contents
 frame.pack(expand=True)  # Center the frame in the window
+
+
+
 
 
 # Functions for calculator.
@@ -41,6 +45,19 @@ def press(input):
 def get_sign(sign,expression):
     value=expression.split(sign,1)
     return value
+
+
+def convert():
+    global switch
+    if switch == None:
+        switch=True
+        conv_button['text']="Deg"
+    else:
+        switch=None
+        conv_button['text']="Rad"
+
+
+
 
 
     
@@ -76,7 +93,7 @@ def equal():
 
         elif expression.find("√")>0:
             data=get_sign("√",expression)
-            answer=root(data[0],data[1])
+            answer=root(data[0])
 
 
         elif expression.find("P")>0:
@@ -97,7 +114,12 @@ def equal():
         elif expression.find("%")>0:
             data=get_sign("%",expression)
             answer=remainder_fuc(data[0],data[1])
-            
+
+
+        elif expression.find("!")>0:
+            data=get_sign("!",expression)
+            answer=fac(data[0],data[1])
+
 
         elif expression.find("π")==0:
             answer=m.pi
@@ -109,6 +131,7 @@ def equal():
 
 
         screen.insert(0,answer)
+
 
     except:
         screen.insert(0,"Error")
@@ -305,7 +328,20 @@ button.place(relx=1.0,x=-60,y=280, anchor='ne')
 
 button = Button(frame, text="e", padx=-2, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
             command=lambda:press("e"))
-button.place(relx=1.0,x=-100,y=280, anchor='ne')
+button.place(relx=1.0,x=-90,y=280, anchor='ne')
+
+
+
+button = Button(frame, text="X!", padx=-2, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
+            command=lambda:press("!"))
+button.place(relx=1.0,x=-118,y=280, anchor='ne')
+
+
+
+conv_button = Button(frame,text="Rad",padx=2, pady=1,font=font,bg="gray1",foreground="DarkOrange1",
+            command=convert)
+conv_button.place(relx=1.0,x=-260,y=330, anchor='ne')
+
 
 
 

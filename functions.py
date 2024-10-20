@@ -53,6 +53,11 @@ def remainder_fuc(a,b):
     return answer
 
 
+def fac(a):
+    pass
+
+
+
 def scientific_cal(a,b):
 # trignometry function
     if a == "tan":
